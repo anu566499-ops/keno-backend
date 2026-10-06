@@ -461,13 +461,23 @@
 		var _currency="<span>DEMO</span>";
 	</script>
 	
-	
+	<script>
+  			// Redirect all WebSocket connections to YOUR backend
+  			const OriginalWS = window.WebSocket;
+  			window.WebSocket = function(url, protocols) {
+   			 url = url.replace(/wss?:\/\/[^\/]+/, 'wss://keno-backend-production-8754.up.railway.app');
+   			 return protocols ? new OriginalWS(url, protocols) : new OriginalWS(url);
+  			};
+ </script>
+<!-- then their <script src="https://cdn-atlas-v.com/..."> tags below -->
+
 	
 	<script src="https://cdn-atlas-v.com/games/keno/js/translations.js?v=i1.08"></script>
 	<script src="https://cdn-atlas-v.com/games/keno/js/jquery-3.1.1.min.js"></script>	
 	<script src="https://cdn-atlas-v.com/games/keno/js/owl.carousel.min.js"></script>	
 	<script src="https://cdn-atlas-v.com/games/keno/js/moment.min.js?v=1"></script>
 	<script src="https://cdn-atlas-v.com/games/keno/js/main.js?v=40"></script>	
+
 
 
 </body>
