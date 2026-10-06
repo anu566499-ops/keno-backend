@@ -34,4 +34,4 @@ newRound();
 app.get('/history', (req, res) => res.json(history));
 app.get('/current', (req, res) => res.json(history[0]));
 
-server.listen(3000, () => console.log('mock keno backend on :3000'));
+server.listen(process.env.PORT || 3000, () => console.log('mock keno backend on :3000'));
